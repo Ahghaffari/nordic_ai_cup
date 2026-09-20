@@ -1,0 +1,18 @@
+# On top of requirements.txt. Installed into /mnt/data/virtual_environments/nordicai-medical-appointment.
+#
+# torch: the cu126 build still ships sm_60 kernels for the Tesla P100
+#   uv pip install torch==2.14.0 --index-url https://download.pytorch.org/whl/cu126
+#
+# llama-cpp-python has no recent prebuilt CUDA wheel; build it for the P100 (compute capability 6.0):
+#   CUDA_HOME=/usr/local/cuda-11.8 PATH=/usr/local/cuda-11.8/bin:$PATH \
+#   CMAKE_ARGS="-DGGML_CUDA=on -DCMAKE_CUDA_ARCHITECTURES=60 -DCMAKE_CUDA_COMPILER=/usr/local/cuda-11.8/bin/nvcc" \
+#   CMAKE_BUILD_PARALLEL_LEVEL=8 uv pip install --no-binary llama-cpp-python llama-cpp-python==0.3.35
+
+torch==2.14.0
+transformers==5.17.0
+accelerate
+faster-whisper==1.2.1
+llama-cpp-python==0.3.35
+huggingface_hub
+jinja2
+numpy

@@ -1,0 +1,5 @@
+# Symlink to /mnt/data/nordicai/survival-simulator (caches, logs, checkpoints)
+data
+
+__pycache__/
+*.py[cod]
